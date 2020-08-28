@@ -1,6 +1,8 @@
 #!/bin/bash
 export COMPOSE_INTERACTIVE_NO_CLI=0
 
+echo "### Starting JMeter Container Network ###"
+
 COUNT=${1-1}
 docker build -t jmeter-base jmeter-base
 docker-compose build
@@ -20,3 +22,5 @@ for filename in scripts/*.jmx; do
 done
 
 docker-compose stop && docker-compose rm -f
+
+echo "### End Of JMeter Container Network ###"
